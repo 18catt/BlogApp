@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os #new
 
+from django.conf.urls.static import static #new
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +29,7 @@ SECRET_KEY = 'django-insecure-8j_uz++l5qe9^)!-cpkiiss1=q=y8_v!=d(35#_x^$t&20=j6f
 DEBUG = True
 
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh','*']
 
 # Application definition
 
@@ -77,10 +79,10 @@ WSGI_APPLICATION = 'blogProject.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
@@ -122,7 +124,8 @@ USE_TZ = True
 
 # STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')] #new
 
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_URL = '/static/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, "D:\Desktop\blog\static"),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
